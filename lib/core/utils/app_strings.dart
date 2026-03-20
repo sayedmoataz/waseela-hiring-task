@@ -76,7 +76,8 @@ class AppStrings {
 
   static const String installmentPlan = 'Installment Plan';
 
-  static const String selectAPlanThatWorksForYou = 'Select a plan that works for you';
+  static const String selectAPlanThatWorksForYou =
+      'Select a plan that works for you';
 
   static const String confirmPlan = 'Confirm Plan';
 
@@ -96,7 +97,8 @@ class AppStrings {
 
   static const String total = 'Total';
 
-  static const String youCanTrackYourPaymentsInTheApp = 'You can track your payments in the app.';
+  static const String youCanTrackYourPaymentsInTheApp =
+      'You can track your payments in the app.';
 
   static const String monthly = 'Monthly';
 
@@ -104,6 +106,10 @@ class AppStrings {
 
   static const String interest = 'Interest';
 
-  static const String confirmOrderWithBiometric = 'Please authenticate to confirm your order.';
+  static const String confirmOrderWithBiometric =
+      'Please authenticate to confirm your order.';
   static const String repaymentSchedule = 'Repayment Schedule';
+  static const String noProductsFound = 'No Products Found';
+  static const String pleaseCheckBackLater =
+      'Please check back later or try refreshing.';
 }

@@ -12,12 +12,12 @@ class InstallmentPlanModel extends InstallmentPlanEntity {
 
   factory InstallmentPlanModel.fromJson(Map<String, dynamic> json) {
     return InstallmentPlanModel(
-      months: json['months'] as int,
-      label: json['label'] as String,
-      interestRate: (json['interestRate'] as num).toDouble(),
-      processingFee: (json['processingFee'] as num).toDouble(),
-      minAmount: (json['minAmount'] as num).toDouble(),
-      maxAmount: (json['maxAmount'] as num).toDouble(),
+      months: json['months'] as int? ?? 0,
+      label: json['label'] as String? ?? '${json['months'] ?? 0} Months',
+      interestRate: (json['interestRate'] as num? ?? 0).toDouble(),
+      processingFee: (json['processingFee'] as num? ?? 0).toDouble(),
+      minAmount: (json['minAmount'] as num? ?? 0).toDouble(),
+      maxAmount: (json['maxAmount'] as num? ?? 0).toDouble(),
     );
   }
 

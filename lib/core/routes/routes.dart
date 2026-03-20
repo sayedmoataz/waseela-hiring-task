@@ -27,8 +27,8 @@ final routes = [
   RouteConfig(
     name: Routes.orderConfirmation,
     builder: (context, arguments) {
-      final String productId =
-          arguments?.getArgument<String>(RouteArguments.productId) ?? '';
+      final ProductEntity? product =
+          arguments?.getArgument<ProductEntity>(RouteArguments.product);
       final String planId = arguments?.getArgument<String>(RouteArguments.planId) ?? '';
       final double monthlyInstallment =
           arguments?.getArgument<double>(RouteArguments.monthlyInstallment) ?? 0.0;
@@ -36,7 +36,7 @@ final routes = [
           arguments?.getArgument<double>(RouteArguments.totalAmount) ?? 0.0;
 
       return OrderConfirmationScreen(
-        productId: productId,
+        product: product,
         planId: planId,
         monthlyInstallment: monthlyInstallment,
         totalAmount: totalAmount,
