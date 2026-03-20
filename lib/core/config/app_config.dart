@@ -7,7 +7,7 @@ class AppConfig {
   static String get baseUrl =>
       dotenv.env['BASE_URL'] ?? 'https://fallback.mockapi.io/api/v1';
 
-  static bool get enableLogging => dotenv.env['ENABLE_LOGGING'] == 'true' || kDebugMode;
+  static bool get enableLogging => kDebugMode || (dotenv.isInitialized ? (dotenv.env['ENABLE_LOGGING'] == 'true') : false);
 
   static bool get isProduction => dotenv.env['APP_ENV'] == 'production';
 }

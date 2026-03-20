@@ -97,8 +97,7 @@ class ErrorHandler {
       return const UnknownFailure(message: 'No response received from server.');
     }
 
-    final statusCode =
-        response.statusCode ?? ResponseCode.defaultError;
+    final statusCode = response.statusCode ?? ResponseCode.defaultError;
     final errorMessage =
         _extractErrorMessage(response.data) ??
         'Server error (Status: $statusCode)';
@@ -124,12 +123,8 @@ class ErrorHandler {
         message: errorMessage,
         code: statusCode,
       ),
-      ResponseCode.forbidden => ForbiddenFailure(
-        message: errorMessage,
-      ),
-      ResponseCode.notFound => NotFoundFailure(
-        message: errorMessage,
-      ),
+      ResponseCode.forbidden => ForbiddenFailure(message: errorMessage),
+      ResponseCode.notFound => NotFoundFailure(message: errorMessage),
       ResponseCode.validationError => ValidationFailure(
         message: errorMessage,
         errors: response.data is Map<String, dynamic> ? response.data : null,

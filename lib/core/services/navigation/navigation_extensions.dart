@@ -30,6 +30,18 @@ extension NavigationExtensions on BuildContext {
 
   void pop<T>([T? result]) => nav.pop<T>(result);
 
+  Future<T?> navigateAndRemoveUntil<T>(
+    String route, {
+    Object? arguments,
+    bool Function(Route<dynamic>)? predicate,
+  }) {
+    return nav.navigateAndRemoveUntil<T>(
+      route,
+      arguments: arguments,
+      predicate: predicate,
+    );
+  }
+
   bool get canPop => nav.canPop();
 }
 
