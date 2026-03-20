@@ -2,11 +2,11 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../domain/usecases/calculate_installment_usecase.dart';
 import '../../../domain/entities/calculations_param.dart';
 import '../../../domain/entities/installment_plan_entity.dart';
 import '../../../domain/entities/repayment_schedule_entry.dart';
 import '../../../domain/repositories/bnpl_repository.dart';
-import '../../../domain/usecases/calculate_installment_usecase.dart';
 
 part 'installment_event.dart';
 part 'installment_state.dart';
@@ -17,7 +17,7 @@ class InstallmentBloc extends Bloc<InstallmentEvent, InstallmentState> {
   final CalculateInstallmentUseCase _calculateInstallment;
 
   InstallmentBloc(this._repository, this._calculateInstallment)
-    : super(const InstallmentInitial()) {
+      : super(const InstallmentInitial()) {
     on<InstallmentPlansRequested>(_onPlansRequested);
     on<InstallmentPlanSelected>(_onPlanSelected);
   }
