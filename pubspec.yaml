@@ -44,7 +44,6 @@ dev_dependencies:
   flutter_lints: ^3.0.1
   # --- Generators ---
   build_runner: ^2.4.7
-  hive_generator: ^2.0.1
   injectable_generator: ^2.4.1
   # --- Testing ---
   mockito: ^5.4.4
