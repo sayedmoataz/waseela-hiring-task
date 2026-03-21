@@ -38,12 +38,12 @@ class OrderModel extends OrderEntity {
   }
 
   factory OrderModel.fromEntity(OrderEntity e) => OrderModel(
-        id: e.id,
-        productId: e.productId,
-        planId: e.planId,
-        totalAmount: e.totalAmount,
-        monthlyInstallment: e.monthlyInstallment,
-        status: e.status,
-        createdAt: e.createdAt,
-      );
+    id: e.id,
+    productId: e.productId,
+    planId: e.planId,
+    totalAmount: e.totalAmount,
+    monthlyInstallment: e.monthlyInstallment,
+    status: e.status,
+    createdAt: e.createdAt,
+  );
 }

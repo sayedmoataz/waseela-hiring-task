@@ -33,11 +33,11 @@ class ProductModel extends ProductEntity {
   }
 
   factory ProductModel.fromEntity(ProductEntity entity) => ProductModel(
-        id: entity.id,
-        name: entity.name,
-        description: entity.description,
-        price: entity.price,
-        imageUrl: entity.imageUrl,
-        category: entity.category,
-      );
+    id: entity.id,
+    name: entity.name,
+    description: entity.description,
+    price: entity.price,
+    imageUrl: entity.imageUrl,
+    category: entity.category,
+  );
 }

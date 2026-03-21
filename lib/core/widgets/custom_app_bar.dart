@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/app_strings.dart';
+
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
@@ -19,7 +21,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: title,
       centerTitle: centerTitle,
-      leading: leading,
+      leading: Tooltip(message: AppStrings.back, child: leading),
       leadingWidth: leadingWidth,
     );
   }

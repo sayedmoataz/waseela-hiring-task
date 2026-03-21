@@ -4,9 +4,8 @@ class ErrorLoggingConfig {
     dynamic error,
     StackTrace? stackTrace,
     Map<String, dynamic> context,
-  ) logError;
+  )
+  logError;
 
-  const ErrorLoggingConfig({
-    required this.logError,
-  });
+  const ErrorLoggingConfig({required this.logError});
 }

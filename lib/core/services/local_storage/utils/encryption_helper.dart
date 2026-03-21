@@ -8,12 +8,8 @@ class EncryptionHelper {
   EncryptionHelper._();
 
   static const _secureStorage = FlutterSecureStorage(
-    aOptions: AndroidOptions(
-      encryptedSharedPreferences: true,
-    ),
-    iOptions: IOSOptions(
-      accessibility: KeychainAccessibility.first_unlock,
-    ),
+    aOptions: AndroidOptions(encryptedSharedPreferences: true),
+    iOptions: IOSOptions(accessibility: KeychainAccessibility.first_unlock),
   );
 
   static const _keyStorageKey = 'hive_encryption_master_key';
@@ -55,7 +51,9 @@ class EncryptionHelper {
         value: base64UrlEncode(newKey),
       );
 
-      debugPrint('[EncryptionHelper] New encryption key generated and stored ✅');
+      debugPrint(
+        '[EncryptionHelper] New encryption key generated and stored ✅',
+      );
 
       return newKey;
     } catch (e) {

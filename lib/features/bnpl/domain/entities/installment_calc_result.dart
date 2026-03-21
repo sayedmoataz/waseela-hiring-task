@@ -16,6 +16,10 @@ class InstallmentCalculationResult extends Equatable {
   });
 
   @override
-  List<Object?> get props =>
-      [monthlyInstallment, totalAmount, totalFees, repaymentSchedule];
+  List<Object?> get props => [
+    monthlyInstallment,
+    totalAmount,
+    totalFees,
+    repaymentSchedule,
+  ];
 }

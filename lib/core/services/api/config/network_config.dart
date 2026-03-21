@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import '../../../utils/constants.dart';
 
 /// Configuration class for network layer setup.
-/// 
+///
 /// Provides validated, immutable configuration with sensible defaults.
 class NetworkConfig {
   final String baseUrl;
@@ -32,9 +32,9 @@ class NetworkConfig {
     this.retryDelay = AppConstants.retryDelay,
     this.defaultResponseType = ResponseType.json,
     this.validateStatus,
-  })  : defaultHeaders = defaultHeaders ?? const {},
-        assert(maxRetries > 0, 'maxRetries must be positive'),
-        assert(maxRetries <= 10, 'maxRetries should not exceed 10');
+  }) : defaultHeaders = defaultHeaders ?? const {},
+       assert(maxRetries > 0, 'maxRetries must be positive'),
+       assert(maxRetries <= 10, 'maxRetries should not exceed 10');
 
   /// Validate the configuration
   void validate() {

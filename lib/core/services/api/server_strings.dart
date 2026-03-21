@@ -4,8 +4,7 @@ class ServerStrings {
 
   // Products
   static const String products = '/products';
-  
+
   // Installment Plans
   static const String installmentPlans = '/installment-plans';
 }
-

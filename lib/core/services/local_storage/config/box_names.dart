@@ -5,7 +5,6 @@
 class BoxNames {
   BoxNames._();
 
-  
   // Biometric preference
   static const String authData = 'auth_data_box';
 
@@ -23,6 +22,7 @@ class BoxNames {
   static const List<String> preloadBoxes = [authData, settings];
 
   static const List<String> cacheBoxes = [bnplCache];
+
   /// Check if a box name is valid
   static bool isValidBoxName(String boxName) {
     return allBoxNames.contains(boxName);

@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 /// Interceptor that manages request cancellation.
-/// 
+///
 /// Features:
 /// - Automatic cancel token creation per request
 /// - Proper cleanup on completion/error
@@ -15,7 +15,7 @@ class CancellationInterceptor extends Interceptor {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     // Create a new cancel token for this request
     final cancelToken = CancelToken();
-    
+
     // Store by path
     final requestKey = _generateRequestKey(options);
     _cancelTokensByPath[requestKey] = cancelToken;
@@ -92,7 +92,7 @@ class CancellationInterceptor extends Interceptor {
     }
 
     _cancelTokensByTag.remove(tag);
-    
+
     // Clean up from path mapping
     _cancelTokensByPath.removeWhere((_, token) => tokens.contains(token));
   }

@@ -13,11 +13,12 @@ final routes = [
   RouteConfig(
     name: Routes.installmentPlan,
     builder: (context, arguments) {
-      final ProductEntity? product =
-          arguments?.getArgument<ProductEntity>(RouteArguments.product);
+      final ProductEntity? product = arguments?.getArgument<ProductEntity>(
+        RouteArguments.product,
+      );
       final int selectedMonths =
           arguments?.getArgument<int>(RouteArguments.selectedMonths) ?? 6;
-      
+
       return InstallmentPlanScreen(
         product: product!,
         initialSelectedMonths: selectedMonths,
@@ -27,11 +28,14 @@ final routes = [
   RouteConfig(
     name: Routes.orderConfirmation,
     builder: (context, arguments) {
-      final ProductEntity? product =
-          arguments?.getArgument<ProductEntity>(RouteArguments.product);
-      final String planId = arguments?.getArgument<String>(RouteArguments.planId) ?? '';
+      final ProductEntity? product = arguments?.getArgument<ProductEntity>(
+        RouteArguments.product,
+      );
+      final String planId =
+          arguments?.getArgument<String>(RouteArguments.planId) ?? '';
       final double monthlyInstallment =
-          arguments?.getArgument<double>(RouteArguments.monthlyInstallment) ?? 0.0;
+          arguments?.getArgument<double>(RouteArguments.monthlyInstallment) ??
+          0.0;
       final double totalAmount =
           arguments?.getArgument<double>(RouteArguments.totalAmount) ?? 0.0;
 

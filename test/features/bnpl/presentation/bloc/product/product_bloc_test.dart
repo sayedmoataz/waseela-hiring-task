@@ -14,9 +14,7 @@ import 'product_bloc_test.mocks.dart';
 
 @GenerateMocks([BnplRepository])
 @GenerateNiceMocks([
-  MockSpec<CalculateInstallmentUseCase>(
-    as: #MockCalculateInstallmentUseCase,
-  ),
+  MockSpec<CalculateInstallmentUseCase>(as: #MockCalculateInstallmentUseCase),
 ])
 void main() {
   late MockBnplRepository mockRepository;
@@ -112,8 +110,6 @@ void main() {
         },
       );
     });
-
-
 
     group('planMonthlyAmounts calculation', () {
       blocTest<InstallmentBloc, InstallmentState>(

@@ -1,4 +1,3 @@
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
@@ -7,17 +6,17 @@ import '../../../../../core/services/services.dart';
 import '../../../../../core/utils/app_strings.dart';
 import '../../../domain/entities/order_entity.dart';
 import '../../../domain/entities/order_param.dart';
-import '../../../domain/usecases/create_order_usecase.dart';
+import '../../../domain/repositories/bnpl_repository.dart';
 
 part 'order_event.dart';
 part 'order_state.dart';
 
 @injectable
 class OrderBloc extends Bloc<OrderEvent, OrderState> {
-  final CreateOrderUseCase _createOrderUseCase;
+  final BnplRepository _repository;
   final BiometricConsumer _biometricConsumer;
 
-  OrderBloc(this._createOrderUseCase, this._biometricConsumer)
+  OrderBloc(this._repository, this._biometricConsumer)
     : super(const OrderInitial()) {
     on<OrderSubmitted>(_onOrderSubmitted);
     on<OrderReset>((event, emit) => emit(const OrderInitial()));
@@ -49,8 +48,8 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       }
     }
 
-    final result = await _createOrderUseCase.call(
-      CreateOrderParams(
+    final result = await _repository.createOrder(
+      params: CreateOrderParams(
         productId: event.productId,
         planId: event.planId,
         totalAmount: event.totalAmount,

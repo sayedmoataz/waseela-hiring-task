@@ -19,8 +19,9 @@ class InstallmentPlanScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => sl<InstallmentBloc>()
-        ..add(InstallmentPlansRequested(productPrice: product.price)),
+      create: (_) =>
+          sl<InstallmentBloc>()
+            ..add(InstallmentPlansRequested(productPrice: product.price)),
       child: InstallmentPlanWidget(
         product: product,
         initialSelectedMonths: initialSelectedMonths,

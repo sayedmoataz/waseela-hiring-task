@@ -22,7 +22,9 @@ class BnplRemoteDatasourceImpl implements BnplRemoteDatasource {
 
       return responseOrFailure.fold(
         (failure) => throw failure,
-        (list) => list.map((json) => ProductModel.fromJson(json as Map<String, dynamic>)).toList(),
+        (list) => list
+            .map((json) => ProductModel.fromJson(json as Map<String, dynamic>))
+            .toList(),
       );
     } catch (e, stackTrace) {
       CrashlyticsLogger.logError(e, stackTrace, feature: 'bnpl');
@@ -40,7 +42,12 @@ class BnplRemoteDatasourceImpl implements BnplRemoteDatasource {
 
       return responseOrFailure.fold(
         (failure) => throw failure,
-        (list) => list.map((json) => InstallmentPlanModel.fromJson(json as Map<String, dynamic>)).toList(),
+        (list) => list
+            .map(
+              (json) =>
+                  InstallmentPlanModel.fromJson(json as Map<String, dynamic>),
+            )
+            .toList(),
       );
     } catch (e, stackTrace) {
       CrashlyticsLogger.logError(e, stackTrace, feature: 'bnpl');
@@ -58,7 +65,7 @@ class BnplRemoteDatasourceImpl implements BnplRemoteDatasource {
     try {
       await Future.delayed(const Duration(seconds: 2));
       final isApproved = DateTime.now().millisecond % 10 < 8;
-      
+
       return OrderModel(
         id: 'ORD-${DateTime.now().millisecondsSinceEpoch}',
         productId: productId,

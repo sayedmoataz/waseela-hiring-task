@@ -60,14 +60,14 @@ final class InstallmentLoaded extends InstallmentState {
 
   @override
   List<Object?> get props => [
-        plans,
-        selectedPlan,
-        monthlyInstallment,
-        totalAmount,
-        totalFees,
-        repaymentSchedule,
-        planMonthlyAmounts,
-      ];
+    plans,
+    selectedPlan,
+    monthlyInstallment,
+    totalAmount,
+    totalFees,
+    repaymentSchedule,
+    planMonthlyAmounts,
+  ];
 }
 
 final class InstallmentError extends InstallmentState {

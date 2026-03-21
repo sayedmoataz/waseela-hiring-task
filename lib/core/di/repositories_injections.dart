@@ -6,7 +6,6 @@ import '../../features/bnpl/data/repositories/bnpl_repository_impl.dart';
 import '../../features/bnpl/domain/repositories/bnpl_repository.dart';
 import 'injection_container.dart';
 
-
 @module
 abstract class BnplRepositoriesModule {
   @LazySingleton(as: BnplRepository)

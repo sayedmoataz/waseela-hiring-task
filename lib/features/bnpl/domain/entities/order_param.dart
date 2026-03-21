@@ -14,5 +14,10 @@ class CreateOrderParams extends Equatable {
   });
 
   @override
-  List<Object?> get props => [productId, planId, totalAmount, monthlyInstallment];
+  List<Object?> get props => [
+    productId,
+    planId,
+    totalAmount,
+    monthlyInstallment,
+  ];
 }

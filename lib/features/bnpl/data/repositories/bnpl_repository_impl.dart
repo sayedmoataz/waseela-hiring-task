@@ -4,6 +4,7 @@ import '../../../../core/errors/error_handler.dart';
 import '../../../../core/errors/failure.dart';
 import '../../domain/entities/installment_plan_entity.dart';
 import '../../domain/entities/order_entity.dart';
+import '../../domain/entities/order_param.dart';
 import '../../domain/entities/product_entity.dart';
 import '../../domain/repositories/bnpl_repository.dart';
 import '../datasources/local/bnpl_local_datasource.dart';
@@ -48,17 +49,14 @@ class BnplRepositoryImpl implements BnplRepository {
 
   @override
   Future<Either<Failure, OrderEntity>> createOrder({
-    required String productId,
-    required String planId,
-    required double totalAmount,
-    required double monthlyInstallment,
+    required CreateOrderParams params,
   }) async {
     try {
       final order = await _remote.createOrder(
-        productId: productId,
-        planId: planId,
-        totalAmount: totalAmount,
-        monthlyInstallment: monthlyInstallment,
+        productId: params.productId,
+        planId: params.planId,
+        totalAmount: params.totalAmount,
+        monthlyInstallment: params.monthlyInstallment,
       );
       return Right(order);
     } catch (e, stackTrace) {

@@ -112,4 +112,6 @@ class AppStrings {
   static const String noProductsFound = 'No Products Found';
   static const String pleaseCheckBackLater =
       'Please check back later or try refreshing.';
+
+  static const String back = 'Go Back';
 }

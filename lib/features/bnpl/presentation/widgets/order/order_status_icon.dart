@@ -11,39 +11,41 @@ class OrderStatusIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color bgColor;
-    const Color iconColor = AppColors.white;
-    IconData iconData;
+    if (status == null) return const SizedBox.shrink();
 
-    if (status == OrderStatus.approved) {
-      bgColor = AppColors.success;
-      iconData = Icons.check_rounded;
-    } else {
-      bgColor = AppColors.warning;
-      iconData = Icons.access_time_filled_rounded;
-    }
+    final isApproved = status == OrderStatus.approved;
+    final bgColor = isApproved ? AppColors.success : AppColors.warning;
+    final iconData = isApproved
+        ? Icons.check_rounded
+        : Icons.access_time_filled_rounded;
+    final semanticLabel = isApproved
+        ? 'Order approved successfully'
+        : 'Order is pending approval';
 
-    return status == null
-        ? const SizedBox.shrink()
-        : Container(
-            width: 80,
-            height: 80,
-            decoration: BoxDecoration(
-              color: bgColor,
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: AppColors.shadow.withOpacity(0.1),
-                  blurRadius: 10,
-                  offset: const Offset(0, 4),
-                ),
-              ],
+    return Semantics(
+      label: semanticLabel,
+      image: false,
+      child: Container(
+        width: 80,
+        height: 80,
+        decoration: BoxDecoration(
+          color: bgColor,
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.shadow.withOpacity(0.1),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
             ),
-            child: Icon(
-              iconData,
-              color: iconColor,
-              size: AppConstants.iconSizeXL,
-            ),
-          );
+          ],
+        ),
+        child: Icon(
+          iconData,
+          color: AppColors.white,
+          size: AppConstants.iconSizeXL,
+          semanticLabel: semanticLabel,
+        ),
+      ),
+    );
   }
 }

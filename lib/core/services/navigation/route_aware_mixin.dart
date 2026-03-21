@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'navigation_service.dart';
 
-mixin RouteAwareMixin<T extends StatefulWidget> on State<T> 
+mixin RouteAwareMixin<T extends StatefulWidget> on State<T>
     implements RouteAware {
   @override
   void didChangeDependencies() {

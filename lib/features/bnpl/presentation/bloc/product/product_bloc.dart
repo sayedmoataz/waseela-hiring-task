@@ -24,26 +24,18 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     emit(const ProductLoading());
     final result = await _repository.getProducts();
 
-    result.fold(
-      (failure) => emit(ProductError(failure.message)),
-      (products) {
-        if (products.isEmpty) {
-          emit(const ProductEmptyState());
-        } else {
-          emit(ProductLoaded(products: products));
-        }
-      },
-    );
+    result.fold((failure) => emit(ProductError(failure.message)), (products) {
+      if (products.isEmpty) {
+        emit(const ProductEmptyState());
+      } else {
+        emit(ProductLoaded(products: products));
+      }
+    });
   }
 
-  void _onProductSelected(
-    ProductSelected event,
-    Emitter<ProductState> emit,
-  ) {
+  void _onProductSelected(ProductSelected event, Emitter<ProductState> emit) {
     if (state is ProductLoaded) {
-      emit((state as ProductLoaded).copyWith(
-        selectedProduct: event.product,
-      ));
+      emit((state as ProductLoaded).copyWith(selectedProduct: event.product));
     }
   }
 }

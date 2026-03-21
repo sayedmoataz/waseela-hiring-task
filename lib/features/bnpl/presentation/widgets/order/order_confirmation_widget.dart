@@ -97,7 +97,11 @@ class _OrderConfirmationWidgetState extends State<OrderConfirmationWidget> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      ProductCard(product: widget.product!),
+                      Semantics(
+                        label:
+                            'Product: ${widget.product!.name}, price: EGP ${widget.product!.price.toStringAsFixed(2)}',
+                        child: ProductCard(product: widget.product!),
+                      ),
                       SizedBox(height: info.spacing(ResponsiveSpacing.xl)),
                       BlocBuilder<OrderBloc, OrderState>(
                         builder: (context, state) {
@@ -112,21 +116,29 @@ class _OrderConfirmationWidgetState extends State<OrderConfirmationWidget> {
                       SizedBox(height: info.spacing(ResponsiveSpacing.xxl)),
                       BlocBuilder<OrderBloc, OrderState>(
                         builder: (context, state) {
-                          return CustomButton(
-                            text: AppStrings.confirmWithBiometric,
-                            textColor: AppColors.white,
-                            isLoading: state is OrderLoading,
-                            isEnabled: state is! OrderSuccess,
-                            onPressed: () {
-                              context.read<OrderBloc>().add(
-                                OrderSubmitted(
-                                  productId: widget.product!.id,
-                                  planId: widget.planId,
-                                  totalAmount: widget.totalAmount,
-                                  monthlyInstallment: widget.monthlyInstallment,
-                                ),
-                              );
-                            },
+                          return Semantics(
+                            label: state is OrderLoading
+                                ? 'Processing your order, please wait'
+                                : 'Confirm order with biometric authentication',
+                            button: true,
+                            enabled: state is! OrderSuccess,
+                            child: CustomButton(
+                              text: AppStrings.confirmWithBiometric,
+                              textColor: AppColors.white,
+                              isLoading: state is OrderLoading,
+                              isEnabled: state is! OrderSuccess,
+                              onPressed: () {
+                                context.read<OrderBloc>().add(
+                                  OrderSubmitted(
+                                    productId: widget.product!.id,
+                                    planId: widget.planId,
+                                    totalAmount: widget.totalAmount,
+                                    monthlyInstallment:
+                                        widget.monthlyInstallment,
+                                  ),
+                                );
+                              },
+                            ),
                           );
                         },
                       ),

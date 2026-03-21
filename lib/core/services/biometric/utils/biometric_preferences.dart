@@ -6,7 +6,7 @@ import '../../local_storage/config/box_names.dart';
 /// Helper for managing biometric preferences
 class BiometricPreferences {
   final HiveConsumer _hiveConsumer;
-  
+
   static const String _biometricEnabledKey = 'biometric_enabled';
   static const String _lastBiometricCheckKey = 'last_biometric_check';
 
@@ -29,7 +29,7 @@ class BiometricPreferences {
       key: _biometricEnabledKey,
       value: enabled,
     );
-    
+
     // Save timestamp
     if (result.isRight()) {
       await _hiveConsumer.save(
@@ -38,7 +38,7 @@ class BiometricPreferences {
         value: DateTime.now().toIso8601String(),
       );
     }
-    
+
     return result;
   }
 
@@ -49,7 +49,7 @@ class BiometricPreferences {
       key: _lastBiometricCheckKey,
       converter: (data) => DateTime.parse(data as String),
     );
-    
+
     return result;
   }
 
@@ -59,12 +59,12 @@ class BiometricPreferences {
       boxName: BoxNames.authData,
       key: _biometricEnabledKey,
     );
-    
+
     final result2 = await _hiveConsumer.delete(
       boxName: BoxNames.authData,
       key: _lastBiometricCheckKey,
     );
-    
+
     // Return first error or success
     return result1.isLeft() ? result1 : result2;
   }

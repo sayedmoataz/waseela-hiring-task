@@ -81,7 +81,6 @@ class AppConstants {
   static const int minUsernameLength = 3;
   static const int maxUsernameLength = 30;
 
-
   // Date Formats
   static const String dateFormat = 'dd/MM/yyyy';
   static const String timeFormat = 'HH:mm';
@@ -110,5 +109,4 @@ class AppConstants {
   static const String passwordHint = '••••••••';
   static const String fullNameHint = 'John Doe';
   static const String phoneNumberHint = '+201234567890';
-
 }

@@ -17,7 +17,7 @@ class InstallmentBloc extends Bloc<InstallmentEvent, InstallmentState> {
   final CalculateInstallmentUseCase _calculateInstallment;
 
   InstallmentBloc(this._repository, this._calculateInstallment)
-      : super(const InstallmentInitial()) {
+    : super(const InstallmentInitial()) {
     on<InstallmentPlansRequested>(_onPlansRequested);
     on<InstallmentPlanSelected>(_onPlanSelected);
   }

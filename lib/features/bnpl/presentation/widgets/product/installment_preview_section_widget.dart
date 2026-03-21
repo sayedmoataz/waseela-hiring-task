@@ -53,10 +53,7 @@ class InstallmentPreviewSection extends StatelessWidget {
                 ),
                 child: ConstrainedBox(
                   constraints: BoxConstraints(
-                    minWidth: info.responsiveValue(
-                      mobile: 80,
-                      tablet: 100,
-                    ),
+                    minWidth: info.responsiveValue(mobile: 80, tablet: 100),
                   ),
                   child: PlanCardWidget(
                     option: plan,

@@ -5,7 +5,6 @@ import 'package:performance_monitor/performance_monitor.dart';
 /// A wrapper service for performance monitoring and smart caching.
 /// Provides simplified API for timing operations and optional caching layer.
 class PerformanceService {
-
   static final PerformanceService _instance = PerformanceService();
 
   /// Singleton instance

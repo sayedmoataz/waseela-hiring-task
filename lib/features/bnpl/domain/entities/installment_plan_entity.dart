@@ -16,4 +16,3 @@ class InstallmentPlanEntity extends Equatable {
   @override
   List<Object?> get props => [months, label, interestRate, processingFee];
 }
-
